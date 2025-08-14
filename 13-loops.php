@@ -47,5 +47,29 @@ for ($i = 1; $i < 20; $i++) {
     }
 }
 
+// foreach: recorre un arreglo y ejecuta el bloque de código por cada elemento
+
+$clientes = ["Pedro", "Lucas", "Lucia"];
+
+// Recorre el arreglo $clientes, y en cada iteración almacena el valor en $c
+foreach($clientes as $c)
+{
+    echo $c . "<br>"; // Muestra el valor de cada cliente
+}
+
+$client = [
+    "nombre" => "Lucas",
+    "saldo" => 200,
+    "tipo" => "premium"
+];
+
+// Recorre el arreglo asociativo $client
+// $key obtiene la clave y $valor obtiene el valor correspondiente
+foreach($client as $key => $valor)
+{
+    echo $key . " - " . $valor . "<br>"; // Muestra clave y valor
+}
+
+
 include 'includes/footer.php';
 ?>
