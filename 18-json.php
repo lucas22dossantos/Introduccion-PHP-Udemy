@@ -1,8 +1,10 @@
 <?php include 'includes/header.php';
 
+// Ejemplo de cómo PHP puede trabajar con JSON.
+// JSON sirve para intercambiar información entre distintos lenguajes, 
+// por ejemplo PHP y JavaScript.
 
-//php y javascript se pueden cominicar por medio de JSON.
-
+// Creamos un arreglo con algunos productos
 $productos = [
     [
         "nombre" => "Tablet",
@@ -19,21 +21,23 @@ $productos = [
         "precio" => 400,
         "disponible" => false
      ]
-
 ];
 
 echo "<pre>";
-var_dump($productos);
- 
 
-//json_encode() convierte un arrreglo a string
-$json = json_encode($productos, JSON_UNESCAPED_UNICODE); //podemos colocar el tipo de conversion
+// Mostramos el arreglo normal de PHP
+echo "=== Arreglo en PHP ===\n";
+var_dump($productos);
+
+// json_encode() -> Convierte un arreglo/objeto de PHP a formato JSON (texto plano)
+echo "\n=== Convertido a JSON ===\n";
+$json = json_encode($productos, JSON_UNESCAPED_UNICODE);// Al usar JSON_UNESCAPED_UNICODE evitamos que los acentos o la ñ se conviertan en códigos raros (\u00f3).
 var_dump($json);
 
-
-//json_decode() convierte un string a arrreglo
-$dejson = json_decode($json, JSON_UNESCAPED_UNICODE); //podemos colocar el tipo de conversion
-var_dump($dejson );
+// json_decode() -> Convierte un texto JSON a un arreglo/objeto de PHP
+echo "\n=== JSON convertido de nuevo a arreglo de PHP ===\n";
+$dejson = json_decode($json, true); // el 'true' hace que sea un arreglo asociativo
+var_dump($dejson);
 
 echo "</pre>";
 
